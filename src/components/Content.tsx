@@ -5,6 +5,8 @@ import { GenreResponseProps } from './SideBar';
 
 import { api } from '../services/api';
 
+import '../styles/content.scss';
+
 interface MovieProps {
   Title: string;
   Poster: string;
@@ -15,9 +17,12 @@ interface MovieProps {
   Runtime: string;
 }
 
-export function Content() {
+interface ContentProps {
+  selectedGenreId: number;
+}
+
+export function Content({selectedGenreId}: ContentProps) {
   // Complete aqui
-  const [selectedGenreId, setSelectedGenreId] = useState(1);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 
   const [movies, setMovies] = useState<MovieProps[]>([]);

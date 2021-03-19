@@ -3,15 +3,22 @@ import { useEffect, useState } from 'react';
 import { Button } from './Button';
 import { api } from '../services/api';
 
+import '../styles/sidebar.scss';
+
 export interface GenreResponseProps {
   id: number;
   name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
   title: string;
 }
 
-export function SideBar() {
+interface SideBarProps {
+  selectedGenreId: number;
+  setSelectedGenreId: (id: number) => void;
+}
+
+export function SideBar({selectedGenreId, setSelectedGenreId}:SideBarProps ) {
   // Complete aqui
-  const [selectedGenreId, setSelectedGenreId] = useState(1);
+  //const [selectedGenreId, setSelectedGenreId] = useState(1);
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
 
   useEffect(() => {
